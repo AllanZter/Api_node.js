@@ -1,0 +1,38 @@
+<main>
+    {{!--Formulario--}}
+    <div class="container">
+        <div class="row">
+            <div class="col-6 offset-3 " >                
+                <form action="/cadastrar" method="post" enctype="multipart/form-data">
+                    <h1 class=" fw-bold text-center text-primary mb-4">Cadastro de produtos</h1>
+                    <input type="text" name="nome" class="form-control"  placeholder="nome do produto">
+                    <input type="number" name="valor" class="form-control" placeholder="valor do produto">
+                    <input type="file" name="imagem" class="form-control" >
+                    <input type="submit" class="btn btn-primary" value="cadastrar">                    
+                </form>                             
+            </div>                      
+        </div>
+    </div>
+    {{!--Listagem de produtos--}}
+    <div class="container">
+        <div class="row">
+            {{#if produtos.length}}
+            {{#each produtos}}
+                <div class="col-12 col-sm-6 col-md-4 col-lg-3">
+                <div class="card">
+                    <img src="../image/{{imagem}}">
+                    <div class="textos">
+                      <p>{{nome}}</p>
+                      <p>{{valor}}</p>  
+                    </div>                    
+                    <a href="#" class="btn btn-warning">Alterar</a>
+                    <a href="#" class="btn btn-danger">Remover</a>
+                </div>
+            </div>
+            {{/each}}
+            {{else}}
+                <p class="text-muted">Nenhum produto cadastrado.</p>
+            {{/if}}
+        </div>
+    </div>
+</main>

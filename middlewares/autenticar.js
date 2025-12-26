@@ -1,0 +1,23 @@
+const jwt = require('jsonwebtoken');
+
+function autenticar(req, res, next) {
+    const authHeader = req.headers.authorization;
+
+    if (!authHeader) {
+        return res.status(401).json({ message: 'Token não informado' });
+    }
+
+    const token = authHeader.split(' ')[1];
+
+    jwt.verify(token, process.env.JWT_SECRET, (err, decoded) => {
+        if (err) {
+            return res.status(401).json({ message: 'Token inválido' });
+        }
+
+        req.userId = decoded.id;
+        req.userType = decoded.userType;
+        next();
+    });
+}
+
+module.exports = autenticar;

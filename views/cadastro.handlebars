@@ -1,0 +1,71 @@
+<main>
+    <div class="container mt-5">
+        <div class="row justify-content-center">
+            <div class="col-4">
+                <h4 class="mb-4 text-center">Cadastro de Usuário</h4>
+
+                <form action="/api/cadastrar" method="POST">
+                    
+                    <!-- Nome -->
+                    <div class="mb-3">
+                        <label class="form-label">Nome</label>
+                        <input 
+                            type="text" 
+                            name="username" 
+                            class="form-control" 
+                            placeholder="Digite seu nome"
+                            required
+                        >
+                    </div>
+
+                    <!-- Email -->
+                    <div class="mb-3">
+                        <label class="form-label">E-mail</label>
+                        <input 
+                            type="email" 
+                            name="email" 
+                            class="form-control" 
+                            placeholder="Digite seu e-mail"
+                            required
+                        >
+                    </div>
+
+                    <!-- Senha -->
+                    <div class="mb-3">
+                        <label class="form-label">Senha</label>
+                        <input 
+                            type="password" 
+                            name="password" 
+                            class="form-control"
+                            placeholder="Digite sua senha"
+                            required
+                        >
+                    </div>
+
+                    <!-- Tipo de Usuário -->
+                    <div class="mb-3">
+                        <label class="form-label">Tipo de Usuário</label>
+                        <select 
+                            name="id_user_types" 
+                            class="form-select"
+                            required
+                        >
+                            <option value="">Selecione...</option>
+                            <option value="ADMIN">Administrador</option>
+                            <option value="MEDIDOR">Medidor</option>
+                            <option value="EMPRESA">Loja</option>
+                        </select>
+                    </div>
+
+                    <!-- Botão -->
+                    <div class="d-grid">
+                        <button type="submit" class="btn btn-primary">
+                            Cadastrar
+                        </button>
+                    </div>
+
+                </form>
+            </div>
+        </div>
+    </div>
+</main>
